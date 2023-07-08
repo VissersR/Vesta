@@ -33,9 +33,7 @@ namespace Unity.LEGO.Utilities
 
         public GraphicsDeviceType[] SetGraphicsDevices(bool webGl1, bool webGl2)
         {
-            return webGl1 && webGl2
-                ? new[] {GraphicsDeviceType.OpenGLES3, GraphicsDeviceType.OpenGLES2}
-                : new[] {webGl1? GraphicsDeviceType.OpenGLES2 : GraphicsDeviceType.OpenGLES3};
+            return new[] {GraphicsDeviceType.OpenGLES3};
         }
 
         public string GetName()
