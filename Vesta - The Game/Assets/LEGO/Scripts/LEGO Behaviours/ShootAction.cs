@@ -1,6 +1,7 @@
 using LEGOModelImporter;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace Unity.LEGO.Behaviours.Actions
 {
@@ -25,6 +26,7 @@ namespace Unity.LEGO.Behaviours.Actions
         bool m_HasFired;
 
         HashSet<Brick> m_ConnectedBricks;
+        private bool _isNetwork;
 
         protected override void Reset()
         {
@@ -44,6 +46,8 @@ namespace Unity.LEGO.Behaviours.Actions
 
         protected override void Start()
         {
+            _isNetwork = NetworkManager.Singleton != null;
+            
             base.Start();
 
             if (IsPlacedOnBrick())
@@ -84,7 +88,9 @@ namespace Unity.LEGO.Behaviours.Actions
                 var projectileRotation = transform.rotation * Quaternion.LookRotation(Vector3.forward + Vector3.right * randomSpread.x + Vector3.up * randomSpread.y);
 
                 var go = Instantiate(m_Projectile, projectilePosition, projectileRotation);
-
+                if (_isNetwork && IsOwner)
+                    go.GetComponent<NetworkObject>()?.Spawn(true);
+                
                 var projectile = go.GetComponent<Projectile>();
                 if (projectile)
                 {

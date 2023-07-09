@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.LEGO.Game;
 using Unity.LEGO.Minifig;
+using Unity.Netcode;
 
 namespace Unity.LEGO.Behaviours
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Projectile : MonoBehaviour
+    public class Projectile : NetworkBehaviour
     {
         [SerializeField, Range(0.0f, 1080.0f), Tooltip("The rotation speed in degrees per second.")]
         float m_RotationSpeed = 0.0f;
@@ -22,9 +23,12 @@ namespace Unity.LEGO.Behaviours
         HashSet<Brick> m_ConnectedBricks;
         List<Collider> m_IgnoredColliders;
         bool m_Launched;
+        private bool _isNetwork;
 
         public void Init(HashSet<Brick> connectedBricks, float velocity, bool useGravity, float time)
         {
+            if (_isNetwork && !IsOwner) return;
+            
             m_ConnectedBricks = connectedBricks;
 
             m_RigidBody.velocity = transform.forward * velocity;
@@ -48,6 +52,10 @@ namespace Unity.LEGO.Behaviours
 
         void Awake()
         {
+            _isNetwork = NetworkManager.Singleton != null;
+            
+            if (!_isNetwork) return;
+            
             m_Collider = GetComponent<CapsuleCollider>();
 
             // Disable the collider until the first update to avoid false collisions with CharacterController's OnControllerColliderHit.
@@ -67,9 +75,34 @@ namespace Unity.LEGO.Behaviours
                 m_Rotate = true;
             }
         }
+        
+        public override void OnNetworkSpawn()
+        {
+            m_Collider = GetComponent<CapsuleCollider>();
+
+            // Disable the collider until the first update to avoid false collisions with CharacterController's OnControllerColliderHit.
+            m_Collider.enabled = false;
+
+            m_RigidBody = GetComponent<Rigidbody>();
+
+            m_RigidBody.isKinematic = false;
+            m_RigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+
+            m_ParticleSystem = GetComponent<ParticleSystem>();
+            m_ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            if (m_RotationSpeed > 0.0f)
+            {
+                m_Rotation = Random.onUnitSphere * m_RotationSpeed;
+                m_Rotate = true;
+            }
+        }
+        
 
         void Update()
         {
+            if (_isNetwork && !IsOwner) return;
+            
             m_Collider.enabled = true;
 
             // Check if the projectile has been launched out of the firing Shoot Action.

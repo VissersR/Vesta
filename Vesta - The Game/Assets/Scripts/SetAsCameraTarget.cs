@@ -2,22 +2,19 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace DefaultNamespace
+public class SetAsCameraTarget: NetworkBehaviour
 {
-    public class SetAsCameraTarget: NetworkBehaviour
+    #region Overrides of NetworkBehaviour
+
+    /// <inheritdoc />
+    public override void OnNetworkSpawn()
     {
-        #region Overrides of NetworkBehaviour
-
-        /// <inheritdoc />
-        public override void OnNetworkSpawn()
-        {
-            if (!IsOwner) return;
-            var cameraController = GameObject.Find(ManagerConstants.ThirdPersonFreeLookCamera);
-            var freeLook = cameraController.GetComponent<CinemachineFreeLook>();
-            freeLook.Follow = transform;
-            freeLook.LookAt = transform;
-        }
-
-        #endregion
+        if (!IsOwner) return;
+        var cameraController = GameObject.Find(ManagerConstants.ThirdPersonFreeLookCamera);
+        var freeLook = cameraController.GetComponent<CinemachineFreeLook>();
+        freeLook.Follow = transform;
+        freeLook.LookAt = transform;
     }
+
+    #endregion
 }

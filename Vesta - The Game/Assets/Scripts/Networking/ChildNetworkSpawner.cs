@@ -16,6 +16,7 @@ public class ChildNetworkSpawner: NetworkBehaviour
         {
             var child = Instantiate(childPrefab, transform);
             var networkObject = child.GetComponent<NetworkObject>();
+            Debug.Log(child.name);
             networkObject.TrySetParent(transform);
             networkObject.Spawn(true);
             networkObject.TrySetParent(transform);

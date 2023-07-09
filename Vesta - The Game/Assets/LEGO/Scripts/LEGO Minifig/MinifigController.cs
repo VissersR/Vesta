@@ -207,6 +207,7 @@ namespace Unity.LEGO.Minifig
         protected static readonly int specialIdHash = Animator.StringToHash("Special Id");
 
         protected Action<bool> onSpecialComplete;
+        private bool _isNetwork;
 
         protected virtual void OnValidate()
         {
@@ -226,8 +227,13 @@ namespace Unity.LEGO.Minifig
             }
         }
 
-        /*protected virtual void Awake()
+        protected virtual void Awake()
         {
+            _isNetwork = NetworkManager.Singleton != null;
+            
+            if (_isNetwork)
+                return;
+            
             minifig = GetComponent<Minifig>();
             controller = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
@@ -241,7 +247,7 @@ namespace Unity.LEGO.Minifig
             {
                 controller.Move(Vector3.down * 0.01f);
             }
-        }*/
+        }
         
         public override void OnNetworkSpawn()
         {
@@ -262,7 +268,7 @@ namespace Unity.LEGO.Minifig
 
         protected virtual void Update()
         {
-            if (exploded || !IsOwner)
+            if (exploded || (!IsOwner && _isNetwork))
             {
                 return;
             }

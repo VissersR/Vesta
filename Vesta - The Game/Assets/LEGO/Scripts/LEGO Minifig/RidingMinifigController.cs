@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace Unity.LEGO.Minifig
 {
@@ -25,6 +26,8 @@ namespace Unity.LEGO.Minifig
 
         float time;
         Animator[] animators;
+        
+        private bool _isNetwork;
 
         protected override void OnValidate()
         {
@@ -52,8 +55,13 @@ namespace Unity.LEGO.Minifig
             }
         }
 
-        /*protected override void Awake()
+        protected override void Awake()
         {
+            _isNetwork = NetworkManager.Singleton != null;
+            
+            if (_isNetwork)
+                return;
+            
             minifig = GetComponentInChildren<Minifig>();
             controller = GetComponent<CharacterController>();
             audioSource = GetComponent<AudioSource>();
@@ -71,7 +79,7 @@ namespace Unity.LEGO.Minifig
             {
                 controller.Move(Vector3.down * 0.01f); 
             }
-        }*/
+        }
         
         public override void OnNetworkSpawn()
         {
@@ -96,8 +104,9 @@ namespace Unity.LEGO.Minifig
 
         protected override void Update()
         {
-            // Handle input.
-            if (!exploded && IsOwner)
+            if ((!IsOwner && _isNetwork)) return;
+            
+            if (!exploded)
             {
                 if (inputEnabled)
                 {
