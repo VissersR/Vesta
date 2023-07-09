@@ -1,11 +1,12 @@
 using LEGOModelImporter;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Unity.LEGO.Behaviours
 {
-    public abstract class LEGOBehaviour : MonoBehaviour
+    public abstract class LEGOBehaviour : NetworkBehaviour
     {
         public const float LEGOHorizontalModule = 0.8f;
         public const float LEGOVerticalModule = 0.96f;

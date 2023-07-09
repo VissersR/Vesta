@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class LogConsole : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI console;
     [SerializeField] 
-    private int maxLenght;
+    private int maxLenght = 10;
     
     private List<string> _logMessages = new List<string>();
          
@@ -30,7 +31,7 @@ public class LogConsole : MonoBehaviour
     {
         if (_logMessages.Count >= maxLenght)
         {
-            _logMessages.RemoveAt(0);
+            _logMessages.Remove(_logMessages.First());
         }
         _logMessages.Add(message);
 

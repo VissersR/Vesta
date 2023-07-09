@@ -1,5 +1,6 @@
 {
     "name": "Unity.LEGO.Editor",
+    "rootNamespace": "",
     "references": [
         "GUID:5f4b3bafcdaa4475baf08f13df03ab4b",
         "GUID:26d129a9307cf4b01a39c801ffc81958",
@@ -9,7 +10,8 @@
         "GUID:417dfeada97c8614483936c399c616a9",
         "GUID:4307f53044263cf4b835bd812fc161a4",
         "GUID:8112c1232fd70408ba74b5d635cbec22",
-        "GUID:478a2357cc57436488a56e564b08d223"
+        "GUID:478a2357cc57436488a56e564b08d223",
+        "GUID:1491147abca9d7d4bb7105af628b223e"
     ],
     "includePlatforms": [
         "Editor"

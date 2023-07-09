@@ -52,7 +52,28 @@ namespace Unity.LEGO.Minifig
             }
         }
 
-        protected override void Awake()
+        /*protected override void Awake()
+        {
+            minifig = GetComponentInChildren<Minifig>();
+            controller = GetComponent<CharacterController>();
+            audioSource = GetComponent<AudioSource>();
+            animators = GetComponentsInChildren<Animator>();
+            animator = GetComponent<Animator>();
+
+            // Initialise animation.
+            foreach (var animator in animators)
+            {
+                animator.SetBool(groundedHash, true);
+            }
+
+            // Make sure the Character Controller is grounded if starting on the ground.
+            if (controller.enabled)
+            {
+                controller.Move(Vector3.down * 0.01f); 
+            }
+        }*/
+        
+        public override void OnNetworkSpawn()
         {
             minifig = GetComponentInChildren<Minifig>();
             controller = GetComponent<CharacterController>();
@@ -76,7 +97,7 @@ namespace Unity.LEGO.Minifig
         protected override void Update()
         {
             // Handle input.
-            if (!exploded)
+            if (!exploded && IsOwner)
             {
                 if (inputEnabled)
                 {

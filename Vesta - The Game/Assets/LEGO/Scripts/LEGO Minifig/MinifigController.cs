@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Unity.LEGO.Minifig
 {
-    public class MinifigController : MonoBehaviour
+    public class MinifigController : NetworkBehaviour
     {
         // Constants.
         const float stickyTime = 0.05f;
@@ -225,7 +226,7 @@ namespace Unity.LEGO.Minifig
             }
         }
 
-        protected virtual void Awake()
+        /*protected virtual void Awake()
         {
             minifig = GetComponent<Minifig>();
             controller = GetComponent<CharacterController>();
@@ -240,11 +241,28 @@ namespace Unity.LEGO.Minifig
             {
                 controller.Move(Vector3.down * 0.01f);
             }
-        }
+        }*/
+        
+        public override void OnNetworkSpawn()
+        {
+            minifig = GetComponent<Minifig>();
+            controller = GetComponent<CharacterController>();
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
+
+            // Initialise animation.
+            animator.SetBool(groundedHash, true);
+
+            // Make sure the Character Controller is grounded if starting on the ground.
+            if (controller.enabled)
+            {
+                controller.Move(Vector3.down * 0.01f);
+            }
+}
 
         protected virtual void Update()
         {
-            if (exploded)
+            if (exploded || !IsOwner)
             {
                 return;
             }

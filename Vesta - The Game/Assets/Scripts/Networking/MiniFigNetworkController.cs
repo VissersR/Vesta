@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.LEGO.Minifig;
 using Unity.Netcode;
 using UnityEngine;
 
+namespace Unity.LEGO.Minifig{
 public class MinifigController : NetworkBehaviour
 {
     // Constants.
@@ -217,13 +219,24 @@ public class MinifigController : NetworkBehaviour
         }
     }
 
-    protected virtual void Awake()
+    #region Overrides of NetworkBehaviour
+
+    /// <inheritdoc />
+    public override void OnNetworkSpawn()
     {
         minifig = GetComponent<Minifig>();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
+        if (IsOwner)
+        {
+            var cameraController = GameObject.Find(ManagerConstants.ThirdPersonFreeLookCamera);
+            var freeLook = cameraController.GetComponent<CinemachineFreeLook>();
+            freeLook.Follow = transform;
+            freeLook.LookAt = transform;            
+        }
+        
         // Initialise animation.
         animator.SetBool(groundedHash, true);
 
@@ -234,15 +247,17 @@ public class MinifigController : NetworkBehaviour
         }
     }
 
+    #endregion
+
     protected virtual void Update()
     {
-        if (exploded)
+        if (exploded || !IsOwner)
         {
             return;
         }
 
         // Handle input.
-        if (inputEnabled && IsOwner)
+        if (inputEnabled)
         {
             switch (inputType)
             {
@@ -1101,4 +1116,5 @@ public class MinifigController : NetworkBehaviour
 
         UpdateState();
     }
+}
 }
