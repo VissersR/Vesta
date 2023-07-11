@@ -8,10 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4124099547456060602, guid: 422c298e5edde4efeb679ddef8883c33,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5769543135938210561, guid: 422c298e5edde4efeb679ddef8883c33,
         type: 3}
       propertyPath: m_Name
       value: Pizza Boy Network
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769543135938210565, guid: 422c298e5edde4efeb679ddef8883c33,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769543135938210567, guid: 422c298e5edde4efeb679ddef8883c33,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5769543135938210569, guid: 422c298e5edde4efeb679ddef8883c33,
         type: 3}
@@ -75,19 +90,19 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5769543135938210561, guid: 422c298e5edde4efeb679ddef8883c33,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9094}
+      addedObject: {fileID: 8420}
     - targetCorrespondingSourceObject: {fileID: 5769543135938210561, guid: 422c298e5edde4efeb679ddef8883c33,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9095}
+      addedObject: {fileID: 8421}
     - targetCorrespondingSourceObject: {fileID: 5769543135938210561, guid: 422c298e5edde4efeb679ddef8883c33,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9097}
+      addedObject: {fileID: 8422}
     - targetCorrespondingSourceObject: {fileID: 5769543135938210561, guid: 422c298e5edde4efeb679ddef8883c33,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1260895833416201874}
+      addedObject: {fileID: 8692}
   m_SourcePrefab: {fileID: 100100000, guid: 422c298e5edde4efeb679ddef8883c33, type: 3}
 --- !u!1 &1894167088230388036 stripped
 GameObject:
@@ -95,7 +110,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5357284677630999109}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9094
+--- !u!114 &8420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +140,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &9095
+--- !u!114 &8421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +196,7 @@ MonoBehaviour:
     TriggerNameHash: 125937960
     TransitionIndex: 3
   m_Animator: {fileID: 1894167088230388045}
---- !u!114 &9097
+--- !u!114 &8422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,14 +216,14 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1260895833416201874
+--- !u!114 &8692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894167088230388036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7050994a0326a4444ae835468e921f76, type: 3}
   m_Name: 

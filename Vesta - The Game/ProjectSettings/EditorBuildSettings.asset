@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer Playground.unity
     guid: 6b0fd186456527649a6046590bd502ac
   - enabled: 1
+    path: Assets/Scenes/Multiplayer.unity
+    guid: 088f82b6f29a9224f908f217e10a81c6
+  - enabled: 1
     path: Assets/LEGO/Scenes/LEGO Tutorial.unity
     guid: c117ceea613454843a1d1c28c25d7a94
   - enabled: 1

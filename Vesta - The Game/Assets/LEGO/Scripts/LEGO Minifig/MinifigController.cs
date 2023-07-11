@@ -208,6 +208,7 @@ namespace Unity.LEGO.Minifig
 
         protected Action<bool> onSpecialComplete;
         private bool _isNetwork;
+        private bool _isNetworkLoaded;
 
         protected virtual void OnValidate()
         {
@@ -229,7 +230,7 @@ namespace Unity.LEGO.Minifig
 
         protected virtual void Awake()
         {
-            _isNetwork = NetworkManager.Singleton != null;
+            _isNetwork = NetworkManager != null;
             
             if (_isNetwork)
                 return;
@@ -264,7 +265,26 @@ namespace Unity.LEGO.Minifig
             {
                 controller.Move(Vector3.down * 0.01f);
             }
-}
+        }
+
+        public void OnNetworkSceneLoaded()
+        {
+            minifig = GetComponent<Minifig>();
+            controller = GetComponent<CharacterController>();
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
+
+            // Initialise animation.
+            animator.SetBool(groundedHash, true);
+
+            // Make sure the Character Controller is grounded if starting on the ground.
+            if (controller.enabled)
+            {
+                controller.Move(Vector3.down * 0.01f);
+            }
+
+            _isNetworkLoaded = true;
+        }
 
         protected virtual void Update()
         {
@@ -629,6 +649,9 @@ namespace Unity.LEGO.Minifig
 
         protected void HandleMotion()
         {
+            /*if (_isNetwork/* && !_isNetworkLoaded#1#)
+                return;*/
+            
             // Handle external motion.
             externalMotion = Vector3.zero;
             externalRotation = 0.0f;

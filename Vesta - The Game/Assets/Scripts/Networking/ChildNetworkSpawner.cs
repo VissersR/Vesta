@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChildNetworkSpawner: NetworkBehaviour
 {
+    [SerializeField] private bool spawnOnLoad;
     [SerializeField] private List<Transform> childPrefabs;
 
     #region Overrides of NetworkBehaviour
@@ -11,7 +12,7 @@ public class ChildNetworkSpawner: NetworkBehaviour
     /// <inheritdoc />
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner) return;
+        if (!IsOwner || !spawnOnLoad) return;
         foreach (var childPrefab in childPrefabs)
         {
             var child = Instantiate(childPrefab, transform);

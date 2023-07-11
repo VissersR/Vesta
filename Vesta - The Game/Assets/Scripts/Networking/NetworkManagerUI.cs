@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NetworkManagerUI : MonoBehaviour
@@ -18,8 +19,26 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        serverButton.onClick.AddListener(() => NetworkManager.Singleton.StartServer());
-        hostButton.onClick.AddListener(() => NetworkManager.Singleton.StartHost());
-        clientButton.onClick.AddListener( () => NetworkManager.Singleton.StartClient());
+        serverButton.onClick.AddListener(() =>
+        {
+            NetworkManager.Singleton.StartServer();
+            LoadScene();
+        });
+        hostButton.onClick.AddListener(() =>
+        {
+            NetworkManager.Singleton.StartHost();
+            LoadScene();
+        });
+        clientButton.onClick.AddListener( () =>
+        {
+            NetworkManager.Singleton.StartClient();
+            // LoadScene();
+        });
+    }
+
+    private void LoadScene()
+    {
+        /*NetworkManager.Singleton.SceneManager.LoadScene(SceneNames.MultiplayerPlayground, LoadSceneMode.Single);*/
+        // ProjectSceneManager.Singleton.LoadScene(SceneNames.MultiplayerPlayground);
     }
 }
