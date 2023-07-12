@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e00fdfc660468d44b9e169f01e4b917c
+timeCreated: 1494046665
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97898
+  packageName: TinyFire VFX 1.0
+  packageVersion: 1.0
+  assetPath: Assets/TinyFire VFX/Materials/slashAlphaMat 2.mat
+  uploadId: 195809

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9d14d7de57db61f41835c680bbfa27cb
+timeCreated: 1494141956
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97898
+  packageName: TinyFire VFX 1.0
+  packageVersion: 1.0
+  assetPath: Assets/TinyFire VFX/Prefabs/TinyFire/TinyFire3.prefab
+  uploadId: 195809

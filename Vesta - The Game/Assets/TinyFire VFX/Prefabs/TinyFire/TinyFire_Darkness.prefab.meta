@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dbba01d57d0ff0740b532e4ebfc24990
+timeCreated: 1494141949
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97898
+  packageName: TinyFire VFX 1.0
+  packageVersion: 1.0
+  assetPath: Assets/TinyFire VFX/Prefabs/TinyFire/TinyFire_Darkness.prefab
+  uploadId: 195809

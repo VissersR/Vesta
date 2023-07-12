@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2cb640e682f9e4874b5fc3714caa6523
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 179859
+  packageName: "Moody Skies - LEGO\xAE Microgame Add-ons"
+  packageVersion: 2.0.0
+  assetPath: Assets/AddOns/MgLEGO Moody Skies/Materials/Environment/Night Fog.mat
+  uploadId: 485827

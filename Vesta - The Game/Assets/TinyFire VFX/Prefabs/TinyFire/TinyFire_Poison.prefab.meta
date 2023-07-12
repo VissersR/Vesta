@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2dd612cce829d624c9897073b85ead2f
+timeCreated: 1494141944
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97898
+  packageName: TinyFire VFX 1.0
+  packageVersion: 1.0
+  assetPath: Assets/TinyFire VFX/Prefabs/TinyFire/TinyFire_Poison.prefab
+  uploadId: 195809

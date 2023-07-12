@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ceb0a3ed2cb53a94fa21843cc958c52b
+timeCreated: 1459808560
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 179859
+  packageName: "Moody Skies - LEGO\xAE Microgame Add-ons"
+  packageVersion: 2.0.0
+  assetPath: Assets/AddOns/MgLEGO Moody Skies/Materials/Skyboxes/Night.mat
+  uploadId: 485827

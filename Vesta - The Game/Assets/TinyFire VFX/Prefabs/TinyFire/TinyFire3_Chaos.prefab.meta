@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c94ca14725391464789de4e88007608c
+timeCreated: 1494230273
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97898
+  packageName: TinyFire VFX 1.0
+  packageVersion: 1.0
+  assetPath: Assets/TinyFire VFX/Prefabs/TinyFire/TinyFire3_Chaos.prefab
+  uploadId: 195809

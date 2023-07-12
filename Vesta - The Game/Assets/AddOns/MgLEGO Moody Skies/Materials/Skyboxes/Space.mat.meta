@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 29a8d89098cb171479909cf05a184820
+timeCreated: 1459808560
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 179859
+  packageName: "Moody Skies - LEGO\xAE Microgame Add-ons"
+  packageVersion: 2.0.0
+  assetPath: Assets/AddOns/MgLEGO Moody Skies/Materials/Skyboxes/Space.mat
+  uploadId: 485827

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bbc4a54ad54f7134b93f363b469be9a2
+timeCreated: 1494141940
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97898
+  packageName: TinyFire VFX 1.0
+  packageVersion: 1.0
+  assetPath: Assets/TinyFire VFX/Prefabs/TinyFire/TinyFire_Strong.prefab
+  uploadId: 195809
