@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Projectile
   - TutorialRequirement
+  - TimeTracker
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
